@@ -17,7 +17,6 @@ app.use(express.json());
 const uri =
   "mongodb+srv://marazzo:uXLtEdmSAKTKrHB9@cluster0.hty68.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bqqvk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -48,7 +47,7 @@ async function run() {
       res.send(result);
     });
 
-    // add product on admin area
+    // add product 
     app.post("/addProduct", async (req, res) => {
       const product = req.body;
       const result = await productsCollection.insertOne(product);
